@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { List } from 'src/app/models/list.model';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { TodoService } from '../../services/todo.service';
 })
 export class Tab1Page {
 
-  constructor(todoService: TodoService) {
+
+  constructor(public todoService: TodoService) {
   }
+  
 
 }
