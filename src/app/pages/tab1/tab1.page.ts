@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { List } from 'src/app/models/list.model';
 import { TodoService } from '../../services/todo.service';
 
@@ -10,8 +11,12 @@ import { TodoService } from '../../services/todo.service';
 export class Tab1Page {
 
 
-  constructor(public todoService: TodoService) {
+  constructor(public todoService: TodoService,
+    private router: Router) {
   }
   
+  agregarList(){
+    this.router.navigateByUrl('/tabs/tab1/add');
+  }
 
 }
