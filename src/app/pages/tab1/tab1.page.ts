@@ -17,7 +17,6 @@ export class Tab1Page {
   }
   
   async agregarList(){
-    // this.router.navigateByUrl('/tabs/tab1/add');
 
     const alert = await this.alertCtrl.create({
       header: 'Nueva lista',
