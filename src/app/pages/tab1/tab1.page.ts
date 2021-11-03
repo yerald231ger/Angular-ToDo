@@ -40,7 +40,9 @@ export class Tab1Page {
             return;
           }
 
-          this.todoService.creatList(data.titulo);
+          const listId = this.todoService.creatList(data.titulo);
+          console.log(listId);
+          this.router.navigateByUrl(`/tabs/tab1/add/${ listId }`);
         }
       }]
     });

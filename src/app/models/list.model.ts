@@ -12,6 +12,7 @@ export class List {
     this.createdAt = new Date();
     this.finished = false;
     this.items = [];
-    this.id = new Date().getDate();
+    var d = new Date();
+    this.id = Number.parseInt(`${d.getFullYear()}${d.getMonth()}${d.getDay()}${d.getHours()}${d.getDay()}${d.getMinutes()}${d.getSeconds()}`);
   }
 }

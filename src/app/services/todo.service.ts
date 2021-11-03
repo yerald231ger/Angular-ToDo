@@ -9,26 +9,29 @@ export class TodoService {
   lists: List[] = [];
 
   constructor() {
-     this.getStorage();
+    this.getStorage();
   }
 
-  creatList(title: string) {
+  creatList(title: string) : number {
     const nuevaLista = new List(title);
-
     this.lists.push(nuevaLista);
-
     this.saveStorage();
+
+    return nuevaLista.id;
+  }
+
+  getList(id: number | string){
+    id = Number(id);
+    return  this.lists.find(l => l.id === id);
   }
 
   saveStorage() {
     localStorage.setItem('data', JSON.stringify(this.lists));
   }
 
-  getStorage()   {
-
-    if(localStorage.getItem('data')){
+  getStorage() {
+    if (localStorage.getItem('data')) {
       this.lists = JSON.parse(localStorage.getItem('data'));
-
     }
   }
 }
