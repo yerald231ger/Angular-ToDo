@@ -37,4 +37,18 @@ export class AddPage implements OnInit {
     this.todoService.saveStorage();
   }
 
+  changeCheck(itme: ListItem){
+    const pendents = this.list.items.filter(id => !id.complated).length;
+
+    if(pendents == 0){
+      this.list.endAt = new Date();
+      this.list.finished = true;
+    }else{
+      this.list.endAt = null;
+      this.list.finished = false;
+    }
+
+    this.todoService.saveStorage();
+  }
+
 }
