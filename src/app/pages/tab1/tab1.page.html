@@ -6,10 +6,12 @@
     </ion-header>
 
     <ion-list color="dark">
-        <ion-item *ngFor="let list of todoService.lists" detail color="dark">
+        <ion-item *ngFor="let list of todoService.lists" detail color="dark"
+        (click)="selectedList(list)">
             <ion-label>
                 {{ list.title }}
             </ion-label>
+            <ion-note slot="end" color="tertiary" > {{ list.items.length }}</ion-note>
         </ion-item>
     </ion-list>
     <!-- <app-explore-container name="To Do page"></app-explore-container> -->

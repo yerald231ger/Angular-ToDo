@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { List } from 'src/app/models/list.model';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class Tab1Page {
     private router: Router,
     private alertCtrl: AlertController) {
   }
-  
+
   async agregarList(){
 
     const alert = await this.alertCtrl.create({
@@ -32,7 +33,7 @@ export class Tab1Page {
           console.log('Cancelar');
         }
       },{
-        text: 'Crear', 
+        text: 'Crear',
         handler: (data) => {
           console.log(data);
           if(data.titulo.length === 0){
@@ -49,6 +50,10 @@ export class Tab1Page {
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
+  }
+
+  selectedList(list: List){
+    this.router.navigateByUrl(`/tabs/tab1/add/${list.id}`);
   }
 
 }
