@@ -14,7 +14,7 @@
     <ion-list color="dark">
         <ion-item color="dark">
             <ion-label position="floating">Nuevo item</ion-label>
-            <ion-input type="text" [(ngModel)]="itemName" (keyup.enter)="AddItem()"></ion-input>
+            <ion-input type="text" [(ngModel)]="itemName" (keyup.enter)="addItem()"></ion-input>
         </ion-item>
     </ion-list>
 
@@ -23,9 +23,17 @@
             <ion-label>Tareas por hacer</ion-label>
         </ion-list-header>
 
-        <ion-item color="dark" *ngFor="let item of list.items" class="animated fadeInDown">
-            <ion-checkbox color="tertiary" [(ngModel)]="item.complated" (ionChange)="changeCheck(item)"></ion-checkbox>
-            <ion-label>{{ item.desc }}</ion-label>
-        </ion-item>
+        <ion-item-sliding *ngFor="let item of list.items; let i = index" class="animated fadeInDown">
+            <ion-item color="dark">
+                <ion-checkbox color="tertiary" [(ngModel)]="item.complated" (ionChange)="changeCheck(item)">
+                </ion-checkbox>
+                <ion-label>{{ item.desc }}</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option (click)="delete(i)" color="danger">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
     </ion-list>
 </ion-content>

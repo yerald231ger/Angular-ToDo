@@ -11,10 +11,10 @@ import { ListItem } from '../../models/list-item.model';
 })
 export class AddPage implements OnInit {
 
-  list : List;
-  itemName : string = '';
+  list: List;
+  itemName: '';
 
-  constructor(private todoService: TodoService, private route : ActivatedRoute) { 
+  constructor(private todoService: TodoService, private route: ActivatedRoute) {
     const id = this.route.snapshot.paramMap.get('listId');
 
     this.list = todoService.getList(id);
@@ -24,8 +24,8 @@ export class AddPage implements OnInit {
   ngOnInit() {
   }
 
-  AddItem(){
-    if(this.itemName.length === 0){
+  addItem() {
+    if (this.itemName.length === 0) {
       return;
     }
 
@@ -37,17 +37,22 @@ export class AddPage implements OnInit {
     this.todoService.saveStorage();
   }
 
-  changeCheck(itme: ListItem){
+  changeCheck(itme: ListItem) {
     const pendents = this.list.items.filter(id => !id.complated).length;
 
-    if(pendents == 0){
+    if (pendents === 0) {
       this.list.endAt = new Date();
       this.list.finished = true;
-    }else{
+    } else {
       this.list.endAt = null;
       this.list.finished = false;
     }
 
+    this.todoService.saveStorage();
+  }
+
+  delete(index: number) {
+    this.list.items.splice(index, 1);
     this.todoService.saveStorage();
   }
 
