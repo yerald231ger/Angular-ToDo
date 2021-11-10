@@ -5,6 +5,8 @@
         </ion-toolbar>
     </ion-header>
 
+    <app-lists></app-lists>
+
     <ion-list color="dark">
         <ion-item *ngFor="let list of todoService.lists" detail color="dark"
         (click)="selectedList(list)">
