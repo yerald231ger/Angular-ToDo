@@ -18,6 +18,6 @@ import { ComponentsModule } from 'src/app/components/components.module';
     Tab2PageRoutingModule,
     ComponentsModule
   ],
-  declarations: [Tab2Page]
+  declarations: [Tab2Page ]
 })
 export class Tab2PageModule {}
