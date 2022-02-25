@@ -1,10 +1,9 @@
+<ion-header collapse="condense" class="ion-no-border">
+    <ion-toolbar color="dark">
+        <ion-title size="large">Finished</ion-title>
+    </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true" color="dark">
-    <ion-header collapse="condense">
-        <ion-toolbar color="dark">
-            <ion-title size="large">Finished</ion-title>
-        </ion-toolbar>
-    </ion-header>
-
-    <app-lists></app-lists>
+    <app-lists [finished]="true"></app-lists>
     <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>

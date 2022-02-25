@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { List } from 'src/app/models/list.model';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -52,8 +51,5 @@ export class Tab1Page {
     const { role } = await alert.onDidDismiss();
   }
 
-  selectedList(list: List){
-    this.router.navigateByUrl(`/tabs/tab1/add/${list.id}`);
-  }
 
 }
